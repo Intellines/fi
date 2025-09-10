@@ -21,7 +21,7 @@ async def lifespan(app: FastAPI):
     except Exception:
         logger.exception("Failed starting server")
     finally:
-        logger.warning(f"Shutting Down Serve [{config.ENV}] v{config.VERSION}")
+        logger.warning(f"Shutting Server [{config.ENV}] v{config.VERSION}")
 
 
 app.router.lifespan_context = lifespan
@@ -62,4 +62,4 @@ app.include_router(app_router)
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=8000, host=config.HOST, reload=True)
+    uvicorn.run("main:app", port=config.PORT, host=config.HOST, reload=True)

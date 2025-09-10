@@ -8,6 +8,8 @@ class Config(BaseSettings):
     X_API_KEY: str
     DATABASE_URL: str
 
+    LOGFIRE_TOKEN: str
+
     model_config: ClassVar[SettingsConfigDict] = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
 

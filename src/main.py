@@ -6,12 +6,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from config import config
 from logger import logger
-from db import DB
-import asyncpg
+
+from auth.dependencies import validate_api_key
 
 import uvicorn
 
-app = FastAPI(title="fi", version=config.VERSION)
+app = FastAPI(title="fi", version=config.VERSION, dependencies=[Depends(validate_api_key)])
 
 
 # lifespan

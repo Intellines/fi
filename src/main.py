@@ -1,11 +1,13 @@
 import time
 import logfire
 from contextlib import asynccontextmanager
-from fastapi import APIRouter, FastAPI, Request
+from fastapi import APIRouter, FastAPI, Request, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from config import config
 from logger import logger
+from db import DB
+import asyncpg
 
 import uvicorn
 

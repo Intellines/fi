@@ -1,11 +1,15 @@
-from pypika import Table
+from pypika import Table, Schema
 from config import config
 
-schema_versions = Table(name="schema_versions", schema=config.DEFAULT_SCHEMA)
-currencies = Table(name="currencies", schema=config.DEFAULT_SCHEMA)
-users = Table(name="users", schema=config.DEFAULT_SCHEMA)
-accounts = Table(name="accounts", schema=config.DEFAULT_SCHEMA)
-assets = Table(name="assets", schema=config.DEFAULT_SCHEMA)
-categories = Table(name="categories", schema=config.DEFAULT_SCHEMA)
-transactions = Table(name="transactions", schema=config.DEFAULT_SCHEMA)
-settings = Table(name="settings", schema=config.DEFAULT_SCHEMA)
+# schemas
+default_schema = Schema(name=config.DEFAULT_SCHEMA)
+
+# tables
+schema_versions = Table("schema_versions", default_schema)
+currencies = Table("currencies", default_schema)
+users = Table("users", default_schema)
+accounts = Table("accounts", default_schema)
+assets = Table("assets", default_schema)
+categories = Table("categories", default_schema)
+transactions = Table("transactions", default_schema)
+settings = Table("settings", default_schema)

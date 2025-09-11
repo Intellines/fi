@@ -4,11 +4,16 @@ from pydantic_settings import SettingsConfigDict, BaseSettings
 
 class Config(BaseSettings):
     VERSION: str = "0.0.1"
+
     ENV: str
+
     PORT: int
     HOST: str
+
     X_API_KEY: str
+
     DATABASE_URL: str
+    DEFAULT_SCHEMA: str
 
     LOGFIRE_TOKEN: str
 

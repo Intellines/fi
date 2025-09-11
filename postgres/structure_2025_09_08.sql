@@ -37,7 +37,6 @@ CREATE TABLE users
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     username VARCHAR(255) NOT NULL UNIQUE CHECK (LENGTH(username) > 0),
     email VARCHAR(255) NOT NULL UNIQUE CHECK (LENGTH(email) > 0),
-    base_currency_id INTEGER NOT NULL REFERENCES currencies (id) ON DELETE RESTRICT,
     external_user_id uuid UNIQUE NOT NULL DEFAULT gen_random_uuid(),
     updated_at TIMESTAMP NOT NULL DEFAULT now(),
     created_at TIMESTAMP NOT NULL DEFAULT now()
@@ -103,7 +102,6 @@ CREATE TABLE transactions
 );
 
 -- Indexes
-CREATE INDEX idx_users_base_currency_id ON users (base_currency_id);
 CREATE INDEX idx_accounts_user_id ON accounts (user_id);
 CREATE INDEX idx_assets_account_id ON assets (account_id);
 CREATE INDEX idx_assets_currency_id ON assets (currency_id);
